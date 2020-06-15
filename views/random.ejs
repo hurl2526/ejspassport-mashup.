@@ -7,9 +7,22 @@
   <link rel= "stylesheet" href= "/css/style.css">
   </head>
   <body>
-    <ul>
-      <% data.data.results.forEach(item => { %>
-      <li><%= item.name.title%>, <%= item.name.first%> <%= item.name.last%> <img src="<%=item.picture.medium%>" alt= "..."/> </li>
+    <header style = "
+height:100px; 
+width: 100%; 
+font-size:2rem; 
+display:flex; 
+justify-content: center;
+align-items: center;
+background:black;
+color: white">Random Users</header>
+    <ul style = " 
+    display:flex; 
+    justify-content: center;
+    background:black;
+    color: white">
+      <% data.data.results.forEach(person => { %>
+      <li><%= person.name.title%>, <%= person.name.first%> <%= person.name.last%> <img src="<%=person.picture.medium%>" alt= "..."/> </li>
       <% }) %>
       
   

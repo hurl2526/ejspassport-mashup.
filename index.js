@@ -9,19 +9,22 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-app.get('/',(req,res)=> {
+// app.get('/',(req,res)=> {
 
-  let name = 'Pat'
-  res.render('movies',{name});//render looks at above dirname first(views)
-})
+//   let name = 'Pat'
+//   res.render('movies',{name});//render looks at above dirname first(views)
+// })
 
 app.get('/movies',(req,res)=>{
-  res.render('movies')
-})
+  axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=3321a09fccc3516724f51fea1ce994ab&language=en-US&page=1')
+.then(movieData => 
+  // console.log(movieData.data.results))
+  res.render('movies',{movieData}))
+.catch(error => console.log(error))
+});
 
 app.get('/random',(req,res)=>{
   axios.get('https://randomuser.me/api/?results=20')
-
 .then(data => 
   // console.log(data.data.results))
   res.render('random',{data}))
@@ -29,24 +32,7 @@ app.get('/random',(req,res)=>{
   // res.render('random',people)
 })
 
-// app.get('/loop', (req,res)=>{
-// let places = [
-//   {city:'jamestown', state:'NY'},
-//   {city:'lakewood', state:'NY'},
-//   {city:'buffalo', state:'NY'}
-// ]
 
-
-//   res.render('index',{places});
-// })
-
-app.get('/movies',(req,res)=>{
-  res.render('about')
-})
-
-app.get('/movies',(req,res)=>{
-  res.render('about')
-})
 
 
 //bootstarp

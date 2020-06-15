@@ -7,6 +7,27 @@
   <link rel= "stylesheet" href= "/css/style.css">
   </head>
   <body>
- <%= name %> 
+    <header style = "
+    height:100px; 
+    width: 100%; 
+    font-size:2rem; 
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    background:black;
+    color: white">Movies Now Playing</header>
+    <ul style = " 
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas;
+    background:black;
+    color: white">
+      <% movieData.data.results.forEach(movie => { %>
+      <li><%= movie.title%>, <%= movie.overview%> <img src="<%=movie.poster_path%>" alt= "..."/> </li>
+      <% }) %>
+      
+  
+    </ul>
   </body>
 </html>
