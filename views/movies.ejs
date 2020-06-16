@@ -24,10 +24,12 @@
     background:black;
     color: white">
       <% movieData.data.results.forEach(movie => { %>
-      <li><%= movie.title%>, <%= movie.overview%> <img src="<%=movie.poster_path%>" alt= "..."/> </li>
+      <li><div style="background-color: white;color: black;"><%= movie.title%></div>
+        <br>
+        <div style="background-color: white;color: black;"><%= movie.overview%></div> 
+        <div><img style ="width: 200px; height: 200px;" src="http://image.tmdb.org/t/p/original<%=movie.poster_path%>" alt= "..."/></div> </li>
       <% }) %>
-      
-  
     </ul>
+
   </body>
 </html>

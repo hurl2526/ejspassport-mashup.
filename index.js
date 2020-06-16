@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/movies',(req,res)=>{
   axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=3321a09fccc3516724f51fea1ce994ab&language=en-US&page=1')
 .then(movieData => 
-  // console.log(movieData.data.results))
+  // console.log(movieData))
   res.render('movies',{movieData}))
 .catch(error => console.log(error))
 });
